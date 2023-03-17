@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Check for -debug flag
+if [[ $* == *-debug* ]]; then
+    set -x
+fi
+
+# If we have a .taskenv file load it as source
+if [ -f .taskenv ]; then
+    # shellcheck disable=SC1091
+    source .taskenv
+fi
+
+# This makes all bin packages installed via npm available here
+# e.g. bogota, nyc, autocannon, etc.
+PATH=$(pwd)/node_modules/.bin:$PATH
+
+# This will make all scripts available in the ./src/bin directory
+PATH=$(pwd)/src/bin:$PATH
+
+##########################################
+# Dev
+##########################################
+function dev:run {
+    vite --host --port 9876
+}
+
+function dev:test {
+    vitest
+}
+
+##########################################
+# Help and auxiliary functions
+##########################################
+## Show function code
+function help:show {
+    declare -f $1
+}
+
+function help {
+    echo ""
+    echo "$0 <task> [...arguments]"
+    echo ""
+    echo "Project: ${PROJECT}"
+    echo ""
+    echo "Tasks:"
+    compgen -A function | grep -v '^_' | cat -n
+    echo ""
+
+    prog="$0"
+    me=$(basename "$prog")
+
+    grep -e '^##[[:space:]]' -e '^##$' "$prog" | sed -e 's/^##//' -e "s/_PROG_/$me/" 2>&1 | less
+}
+
+TIMEFORMAT="Task completed in %3lR"
+time "${@:-help}"

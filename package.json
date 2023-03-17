@@ -1,0 +1,27 @@
+{
+  "name": "template-react-project",
+  "version": "0.0.1",
+  "description": "Template for simple-project-generator to bootstrap React projects ",
+  "main": "prompt.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goliatone/template-react-project.git"
+  },
+  "keywords": [
+    "simple-project-generator",
+    "react",
+    "template"
+  ],
+  "author": "Goliatone <hello@goliatone.com> (http://goliatone.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goliatone/template-react-project/issues"
+  },
+  "homepage": "https://github.com/goliatone/template-react-project#readme",
+  "dependencies": {
+    "slug": "^0.9.1"
+  }
+}
