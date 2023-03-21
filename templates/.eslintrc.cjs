@@ -22,4 +22,14 @@ module.exports = {
     rules: {
         'react/react-in-jsx-scope': 0,
     },
+    settings: {
+        'import/resolver': {
+            typescript: {}, // this loads <rootdir>/tsconfig.json to eslint
+            alias: {
+                map: [
+                    ['@', './src']
+                ],
+            },
+        },
+    },
 };
