@@ -9,7 +9,17 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), VitePluginBrowserSync()],
+    plugins: [
+        react(),
+        VitePluginBrowserSync({
+            bs: {
+                ui: {
+                    port: 3000,
+                },
+                notify: false,
+            },
+        }),
+    ],
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
