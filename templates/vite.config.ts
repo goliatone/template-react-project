@@ -16,7 +16,8 @@ export default defineConfig({
                 ui: {
                     port: 3000,
                 },
-                notify: false,
+                notify: true,
+                plugins: ['bs-console-qrcode'],
             },
         }),
     ],
