@@ -23,12 +23,19 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            '@': resolve(__dirname, './src'),
         },
     },
+    // optimizeDeps: {},
     test: {
         globals: true,
         environment: 'jsdom',
         setupFiles: ['./src/setupTests.ts'],
+    },
+    define: {
+        // Some libraries use the global object, even though it doesn't exist in the browser.
+        // Alternatively, we could add `<script>window.global = window;</script>` to index.html.
+        // https://github.com/vitejs/vite/discussions/5912
+        global: {},
     },
 });
