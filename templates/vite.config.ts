@@ -5,7 +5,7 @@
 import react from '@vitejs/plugin-react';
 import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 import { defineConfig } from 'vite';
-import path from 'path';
+import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
