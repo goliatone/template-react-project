@@ -14,3 +14,8 @@ In comes with the following items properly configured:
 
 
 [spg]:https://github.com/goliatone/simple-project-generator
+
+TODO:
+- [ ] Add `npm install zustand` to template
+
+
